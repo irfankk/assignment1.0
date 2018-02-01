@@ -11,9 +11,4 @@ class StudentaAuth:
 			return None
 		
 		
-	def get_user(self, user_id):
-		try:
-			user = student.objects.get(pk=user_id)
-			return user
-		except student.DoesnotExist:
-			return None	
+
