@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import   BaseUserManager, AbstractBaseUser
 import uuid
+from django.utils import timezone
+
 
 
 
@@ -32,12 +34,14 @@ class Teacher(AbstractBaseUser):
 	username =	models.CharField(max_length=200, unique= True)
 	first_name = models.CharField(max_length = 200)
 	last_name =models.CharField(max_length = 200)
-	email = models.CharField(max_length = 200)
+	email = models.EmailField()
 	teacher = models.BooleanField(default=False) 
-	phone_number = models.IntegerField()
-	created = models.DateTimeField(auto_now_add=True)
+	phone_number = models.CharField(max_length=12)
+	created = models.DateTimeField(default=timezone.now)
 	location = models.CharField(max_length=300)
 	uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	image = models.FileField(upload_to='teacher/image/%Y/%m/%d')
+	
 
 
 
@@ -57,5 +61,7 @@ class Teacher(AbstractBaseUser):
 	@property
 	def is_teacher(self):
 		return self.teacher
+
+
 
 

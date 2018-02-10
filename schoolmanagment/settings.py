@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'cookieless.middleware.CookielessSessionMiddleware',
 ]
 
 ROOT_URLCONF = 'schoolmanagment.urls'
@@ -79,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': 'school',
+        'NAME': 'irfan',
         'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': '127.0.0.1',
@@ -126,7 +127,31 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+    # ]
+# STATIC_ROOT = os.path.join(os.path.join(BASE_DIR), "static")
+
 AUTH_USER_MODEL = 'student.student'
 
-AUTHENTICATION_BACKENDS = ( 'student.backends.StudentaAuth', 'techer.backends.TeachertaAuth' )
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
 
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+ALLOWED_HOSTS =[]
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'irfankk1993@gmail.com'
+EMAIL_HOST_PASSWORD = 'Betterlife1'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

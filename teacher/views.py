@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth import login, logout
+
 from .backends import *
 from .forms import *
 from .models import *
@@ -29,6 +31,7 @@ def teacherLog(request):
 				return HttpResponse("Teacher loged in")
 			else: 
 				return HttpResponse('error for loging')
+			
 
 
 	return render(request, 'teacher/teacherLog.html')

@@ -1,0 +1,9 @@
+
+
+{% autoescape off %}
+Hi {{ user }}
+Please click on the link to confirm your registration,
+
+http://{{ domain}}/set/{{user}}/{{token}}
+
+{% endautoescape %}

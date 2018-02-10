@@ -9,5 +9,7 @@ urlpatterns = [
 
 path('teacherReg', views.teacherReg, name = 'techerreg'),
 path('teacherLog', views.teacherLog, name = 'teacherlog'),
+# path('teacherLog', views.teacherLog, name = 'teacherlog'),
+# path('teacherLog', views.teacherLog, name = 'teacherlog'),
 
 ]

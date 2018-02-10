@@ -14,4 +14,9 @@ class TeachertaAuth:
 			
 			return None
 
-	
+	def get_user(self, user_id):
+		try:
+			user = Teacher.objects.get(pk=user_id)
+			return user
+		except Teacher.DoesnotExist:
+			return None	
