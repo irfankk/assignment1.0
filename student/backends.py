@@ -13,10 +13,12 @@ class StudentaAuth:
 			
 		except student.DoesNotExist:
 			return None
-	# def get_user(self, user_id):
-	# 		try:
-	# 			user = student.objects.get(pk=user_id)
-	# 			return user
-	# 		except student.DoesNotExist:
-	# 			return None
+
+	
+	def get_user(self, user_id):
+			try:
+				user = student.objects.get(pk=user_id)
+				return user
+			except student.DoesNotExist:
+				return None
 

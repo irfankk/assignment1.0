@@ -92,8 +92,10 @@ class StudentLog(FormView):
 		password = form.cleaned_data.get('password')
 		username = form.cleaned_data.get('username')
 		print(username, password)
-		user = authenticate(username =username, password= password)
-		if user is not None and user.activate == True:
+		user = StudentaAuth.authenticate(username =username, password= password)
+		print(user)
+		if user is not None :
+			print('lmm')
 
 			login(self.request, user)	
 			

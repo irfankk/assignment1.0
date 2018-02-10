@@ -42,9 +42,8 @@
 </form>
 {% endblock %} -->
 
-
-
-
+<span id ="error" class=" alert-danger"></span>
+<span id="success" class=" alert-success"></span>
 
 <div class="col-lg-12">
                     <section class="panel">
@@ -199,16 +198,19 @@ $.ajaxSetup({
             type: "POST",
             url: '/studentReg',
             data: form,
-            dataType :'json',
+           
             
             success: function(response){
-                alert('Success')
-                $myForm.reset();
+                $myForm[0].reset();
+                $('#success').html('Registration Compleated')
             },
-            error: function(resonce){
-                
-                alert(response)
-                
+            error: function(data, response, err){
+                $('#danger').html(data.responseText)
+               
+               /* var errrors = data.responseText,
+                alert(errors),
+                console.log(response)*/
+               /*  $myForm[0].reset();*/
                 /*alert('error')*/
             },
             contentType : false,

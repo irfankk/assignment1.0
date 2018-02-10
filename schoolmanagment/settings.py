@@ -134,7 +134,7 @@ STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'student.student'
 
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+AUTHENTICATION_BACKENDS = ['student.backends.StudentaAuth']
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -151,7 +151,7 @@ ALLOWED_HOSTS =[]
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'irfankk1993@gmail.com'
-EMAIL_HOST_PASSWORD = 'Betterlife1'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

@@ -35,7 +35,7 @@ class StudentReg(forms.ModelForm):
 			
 	 
 	def clean_phone_number(self):
-		pattern = re.compile(r'^((!(0|1|2|3|4|5))[0-9]{10,10})$')
+		pattern = re.compile(r'^((?!(0|1|2|3|4|5))[0-9]{10,10})$')
 		phone_number = self.cleaned_data.get('phone_number')
 		if pattern.match(phone_number):
 			return phone_number
